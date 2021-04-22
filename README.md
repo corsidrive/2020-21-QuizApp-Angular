@@ -19,7 +19,8 @@ $ ng serve
 
 ```
 
-[README.md delle cose fatte a lezione](./__docs__/README.angular.md)
+
+## [README.md delle cose fatte a lezione](./__docs__/README.angular.md)
 
 ## Materiali vari usati a lezione
 
