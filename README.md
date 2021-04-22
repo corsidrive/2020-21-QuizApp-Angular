@@ -1,6 +1,8 @@
 # Quiz App
 
-> Per poter usare questo progetto:
+## Installazione
+
+Per poter usare questo progetto:
 
 ```bash
 
@@ -17,10 +19,15 @@ $ ng serve
 
 ```
 
+## Materiali vari usati a lezione
+
 [README.md delle cose fatte a lezione](./__docs__/README.angular.md)
 [Layout HTML di partenza della partita](./__docs__/index.html)
-[file JSON demo della *response* di Opentrivia DB]("./__docs__/response.json")
+[file JSON demo della *response* di Opentrivia DB](./__docs__/response.json)
+
+[Grafici e diagrammi vari]
 ---
+
 [Sito con del progetto Opentrivia DB](https://opentdb.com/)
 - [Pagina per la creazione dell' API URL](https://opentdb.com/api_config.php)
 
