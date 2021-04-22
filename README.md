@@ -21,11 +21,11 @@ $ ng serve
 
 ## Materiali vari usati a lezione
 
-[README.md delle cose fatte a lezione](./__docs__/README.angular.md)
-[Layout HTML di partenza della partita](./__docs__/index.html)
-[file JSON demo della *response* di Opentrivia DB](./__docs__/response.json)
+- [README.md delle cose fatte a lezione](./__docs__/README.angular.md)
+- [Layout HTML di partenza della partita](./__docs__/index.html)
+- [file JSON demo della *response* di Opentrivia DB](./__docs__/response.json)
 
-[Grafici e diagrammi vari]
+[Grafici e diagrammi vari](./__docs__/png/angular_quiz.component.png)
 ---
 
 [Sito con del progetto Opentrivia DB](https://opentdb.com/)
