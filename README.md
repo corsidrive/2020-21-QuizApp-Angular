@@ -18,8 +18,11 @@ $ ng serve
 ```
 
 [README.md delle cose fatte a lezione](./__docs__/README.angular.md)
-
+[Layout HTML di partenza della partita](./__docs__/index.html)
+[file JSON demo della *response* di Opentrivia DB]("./__docs__/response.json")
+---
 [Sito con del progetto Opentrivia DB](https://opentdb.com/)
-- [Pagina per la creazione dell API URL](https://opentdb.com/api_config.php)
+- [Pagina per la creazione dell' API URL](https://opentdb.com/api_config.php)
+
 
 
