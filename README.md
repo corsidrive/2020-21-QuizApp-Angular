@@ -1,6 +1,6 @@
 # Quiz App
 
-Per poter usare questo progetto non basta clonare il repository
+> Per poter usare questo progetto:
 
 ```bash
 
