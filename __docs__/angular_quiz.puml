@@ -1,0 +1,45 @@
+@startuml
+
+  Game "1"---"n" Question
+  App --- GameComponent
+  App --- MainHeader
+  App --- Footer
+
+  GameComponent --- Header
+  GameComponent --- List
+  GameComponent --- Controls
+
+  class App <component> {
+        
+  }
+
+  class Game <service> {
+      - currentQuestion:Question
+      - QuestionList:Array<Question>
+      - numberOfQuestion:number
+      - questions:Array
+      - correctAnswers:number
+      - wrongAnswars:number
+      ' imposta la partita imposta la pria domanda
+      + prepareGame()
+      + getCurrentQuestion()
+      + goToNextQuestion()
+      + goToPrevius()
+      + islastQuestion()
+      + getGameResult()
+  }
+
+  ' class GameResult {
+  '       points
+  '       win
+  ' }
+
+  class Question <model> {
+      - question:string
+      - difficulty:string
+      - questionText:string
+      - incorrectAnswers:Array<string>
+      - correctAnswer:string
+  }
+
+@enduml

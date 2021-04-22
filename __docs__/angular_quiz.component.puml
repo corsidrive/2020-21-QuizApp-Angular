@@ -1,0 +1,29 @@
+@startuml
+
+  App --- Game
+  App --- MainHeader
+  App --- Footer
+
+  Game *--- QuestionHeader 
+  Game *--- AnswersList
+  Game *--- GameControls
+  Game *--- GameProgressBar
+
+  class App <component> {}
+
+  class MainHeader <component> {
+    + title:string
+    + lead:string 
+  }
+
+  class QuestionHeader <component> {
+    + question:string
+    + difficulty:string
+    + category:string
+  }
+
+  class Game <component>
+  class GameControls <component>
+  class GameProgressBar <component>
+  class AnswersList <component>
+@enduml
