@@ -21,6 +21,8 @@ skinparam classStereotypeFontSize 14
   Game *--- GameControls
   Game *--- GameProgressBar
 
+  Game --- GameService
+
   class App <component> {}
 
   class MainHeader <component> {
@@ -34,10 +36,13 @@ skinparam classStereotypeFontSize 14
     + category:string
   }
 
-  class Game <component>
+  class Game <component> {
+
+  }
   class GameControls <component>
   class GameProgressBar <component>
   class AnswersList <component>
+  
 
 
   
