@@ -1,18 +1,7 @@
 {
     "response_code": 0,
     "results": [
-      "category": "Entertainment: Video Games",
-      {
-            "type": "multiple",
-            "difficulty": "medium",
-            "question": "Who was the first female protagonist in a video game?",
-            "correct_answer": "Samus Aran",
-            "incorrect_answers": [
-                "Lara Croft",
-                "Alis Landale",
-                "Chell"
-            ]
-        },
+   
         {
             "category": "Entertainment: Video Games",
             "type": "multiple",

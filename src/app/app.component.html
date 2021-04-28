@@ -4,3 +4,20 @@
     lead="giochiamo con open trivial"
     >
 </main-header>
+<h1> {{currentQuestionIndex}}/{{questions.length}}</h1>
+<button (click) = "next()" > next </button>
+<ol>
+    <!-- <li *ngFor="let item of currentQuestion; index as i;">...</li> -->
+    <li *ngFor="let answer of getAnswers()">
+                {{answer}}
+    </li>
+</ol>
+
+
+
+<pre class="d-flex justify-content-end">
+    {{currentQuestion.category}}
+
+    {{currentQuestion.incorrect_answers|json}}
+</pre>
+
