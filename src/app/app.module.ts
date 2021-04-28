@@ -3,19 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
-import { GameControlsComponent } from './game-controls/game-controls.component';
-import { GameControlsComponent } from './game-controls/game-controls.component';
+import { GameComponent } from './game/game.component';
+import { GameControlComponent } from './game/game-control/game-control.component';
+import { AnswersListComponent } from './game/answers-list/answers-list.component';
+import { QuestionHeaderComponent } from './game/question-header/question-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainHeaderComponent,
-    GameControlsComponent
+    GameComponent,
+    GameControlComponent,
+    AnswersListComponent,
+    QuestionHeaderComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [GameService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
