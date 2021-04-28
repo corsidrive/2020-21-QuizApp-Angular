@@ -38,4 +38,22 @@ skinparam classStereotypeFontSize 14
   class GameControls <component>
   class GameProgressBar <component>
   class AnswersList <component>
+
+
+  
+  class GameService << (S,orchid) Service >> {
+      - currentQuestion:Question
+      - QuestionList:Array<Question>
+      - numberOfQuestion:number
+      - questions:Array
+      - correctAnswers:number
+      - wrongAnswars:number
+      ' imposta la partita imposta la pria domanda
+      + prepareGame()
+      + getCurrentQuestion()
+      + goToNextQuestion()
+      + goToPrevius()
+      + islastQuestion()
+      + getGameResult()
+  }
 @enduml
