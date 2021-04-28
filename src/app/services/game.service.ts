@@ -8,18 +8,35 @@ export class GameService {
 
   private counter:Counter
   private currentQuestion:any
-  
+
   private questions:Array<any> = [];
   constructor() { 
     this.getResponse()
     this.counter = new Counter(0,0,this.questions.length)
   }
 
+  getNextQuestions() {
+    this.counter.increment();
+    const currentIndex = this.counter.getValue();
+    this.currentQuestion = this.questions[currentIndex];
+  }
 
+  getPreviusQuestion(){
+    this.counter.decrement();
+    const currentIndex = this.counter.getValue();
+    this.currentQuestion = this.questions[currentIndex];
+  }
 
+  getAnswers(){
+    const correct = this.currentQuestion.correct_answer
+    const incorrect = this.currentQuestion.incorrect_answers
+    const answers = [...incorrect,correct]; 
+    
+  }
 
 
   getResponse(){
+
     const responseHttp = {
       "response_code": 0,
       "results": [
@@ -145,6 +162,8 @@ export class GameService {
           }
       ]
     }
+
+  
 
     this.questions = responseHttp.results
   }
