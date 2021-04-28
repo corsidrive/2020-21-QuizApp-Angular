@@ -1,8 +1,8 @@
 {
     "response_code": 0,
     "results": [
-      "category": "Entertainment: Video Games",
-      {
+        {
+           "category": "Entertainment: Video Games",
             "type": "multiple",
             "difficulty": "medium",
             "question": "Who was the first female protagonist in a video game?",
