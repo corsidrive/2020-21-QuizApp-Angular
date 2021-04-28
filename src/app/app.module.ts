@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
+import { GameControlsComponent } from './game-controls/game-controls.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainHeaderComponent
+    MainHeaderComponent,
+    GameControlsComponent
   ],
   imports: [
     BrowserModule

@@ -1,5 +1,17 @@
 @startuml
 
+'https://plantuml.com/skinparam
+'https://plantuml-documentation.readthedocs.io/en/latest/formatting/all-skin-params.html
+'java -jar plantuml.jar -language
+
+skinparam shadowing false
+skinparam classFontSize 16
+skinparam classStereotypeFontSize 14
+'skinparam monochrome reverse
+'skinparam classFontColor red
+'skinparam classFontName Aapex
+
+
   App --- Game
   App --- MainHeader
   App --- Footer
