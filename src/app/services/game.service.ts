@@ -20,6 +20,8 @@ export class GameService {
     return this.currentQuestion
   }
 
+  
+
   getQuestions(){
     const triviaResponse = {
       "response_code": 0,

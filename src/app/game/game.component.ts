@@ -18,4 +18,8 @@ export class GameComponent implements OnInit {
     
   }
 
+  goToNextQuestion(){
+    console.log("andiamo alla prossima");
+  }
+
 }

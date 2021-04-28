@@ -3,5 +3,5 @@ game.component {{currentQuestion.category}}
 <game-question-header [question]="currentQuestion"></game-question-header>
 <game-answers-list></game-answers-list>
 <div class="d-flex justify-content-center p-3 border-top mt-3">
-    <game-control></game-control>
+    <game-control  (onnext)="goToNextQuestion()"  ></game-control>
 </div>
