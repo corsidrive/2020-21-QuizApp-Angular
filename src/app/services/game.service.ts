@@ -11,7 +11,9 @@ export class GameService {
   }
 
   prepareGame() {
-    this.currentQuestion = this.questions[0];
+    this.getQuestions();
+    console.log("GameService",this.questions[0])
+    this.currentQuestion = this.questions[0]
   }
 
   getCurrentQuestion() {
@@ -22,18 +24,7 @@ export class GameService {
     const triviaResponse = {
       "response_code": 0,
       "results": [
-        "category": "Entertainment: Video Games",
-        {
-              "type": "multiple",
-              "difficulty": "medium",
-              "question": "Who was the first female protagonist in a video game?",
-              "correct_answer": "Samus Aran",
-              "incorrect_answers": [
-                  "Lara Croft",
-                  "Alis Landale",
-                  "Chell"
-              ]
-          },
+        
           {
               "category": "Entertainment: Video Games",
               "type": "multiple",
@@ -145,6 +136,8 @@ export class GameService {
       ]
     }
     this.questions =  triviaResponse.results;
+
+    return triviaResponse.results;
   }
 
 }

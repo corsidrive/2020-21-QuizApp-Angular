@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'game-question-header',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-header.component.css']
 })
 export class QuestionHeaderComponent implements OnInit {
-
+  @Input() question:any
   constructor() { }
 
   ngOnInit(): void {

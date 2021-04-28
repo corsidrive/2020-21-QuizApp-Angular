@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from '../services/game.service';
 
 @Component({
   selector: 'quiz-game',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-
-  constructor() { }
-
+  public currentQuestion:any;
+  constructor(private gameService:GameService) { 
+  }
+  
   ngOnInit(): void {
+    this.gameService.prepareGame()
+    this.currentQuestion = this.gameService.getCurrentQuestion()
+    console.log("Game Component - onInit",this.currentQuestion); 
+    
   }
 
 }
