@@ -6,7 +6,11 @@
 </pre>
 
 <ul>
-    <li *ngFor="let answer of question.answers">{{answer}}</li>
+    <li
+    (click) = "selectAnswer(answer)" 
+    *ngFor="let answer of question.answers">{{answer}}
+</li>
 </ul>
 
+<button  (click) = "onPreviusQuestion()">prev</button>
 <button  (click) = "onNextQuestion()">next</button>
