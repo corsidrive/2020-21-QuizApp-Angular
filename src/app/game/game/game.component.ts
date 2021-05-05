@@ -20,4 +20,11 @@ export class GameComponent implements OnInit {
   onNextQuestion(){
     this.question = this.service.getNextQuestions()
   }
+  onPreviusQuestion(){
+    this.question = this.service.getPreviusQuestion()
+  }
+
+  selectAnswer(answer:string){
+      this.question.userAnswer = answer; 
+  }
 }

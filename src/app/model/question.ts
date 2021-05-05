@@ -1,6 +1,7 @@
 export class Question {
     public isDone = false;
     public isCorrect = false;
+    public userAnswer='';
     constructor(
         public category:string = '',
         public type:string = '',

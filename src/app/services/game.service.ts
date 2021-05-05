@@ -40,6 +40,7 @@ export class GameService {
     this.counter.decrement();
     const currentIndex = this.counter.getValue();
     this.currentQuestion = this.questions[currentIndex];
+    return this.currentQuestion
   }
 
   getAnswers(){
