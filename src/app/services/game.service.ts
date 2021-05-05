@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Query } from '@angular/core';
+import { Question } from '../model/question';
 import { Counter } from './counter';
 
 @Injectable({
@@ -11,14 +12,28 @@ export class GameService {
 
   private questions:Array<any> = [];
   constructor() { 
-    this.getResponse()
+
+    const map = this.getResponse().map((item)=>{
+       
+        return new Question(item.category,item.type,item.difficulty,item.question,item.incorrect_answers,item.correct_answer,[]);
+        
+    })
+
+    console.log(map)
+
+    this.questions = map;
+    
     this.counter = new Counter(0,0,this.questions.length)
+    this.currentQuestion = this.questions[0];
   }
+
+  
 
   getNextQuestions() {
     this.counter.increment();
     const currentIndex = this.counter.getValue();
     this.currentQuestion = this.questions[currentIndex];
+    return this.currentQuestion
   }
 
   getPreviusQuestion(){
@@ -34,6 +49,9 @@ export class GameService {
     
   }
 
+  getCurrentQuestion(){
+      return this.currentQuestion
+  }
 
   getResponse(){
 
@@ -163,8 +181,6 @@ export class GameService {
       ]
     }
 
-  
-
-    this.questions = responseHttp.results
+    return responseHttp.results
   }
 }

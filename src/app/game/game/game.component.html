@@ -1,1 +1,12 @@
-<p>game works!</p>
+{{question.question}}
+
+<pre>
+
+    {{question|json}}
+</pre>
+
+<ul>
+    <li *ngFor="let answer of question.answers">{{answer}}</li>
+</ul>
+
+<button  (click) = "onNextQuestion()">next</button>
