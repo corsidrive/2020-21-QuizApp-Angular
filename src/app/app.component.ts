@@ -9,5 +9,4 @@ import { GameService } from './services/game.service';
 export class AppComponent {
   title = 'ciccio !!!!!';
 
-  game = new GameService()
 }
