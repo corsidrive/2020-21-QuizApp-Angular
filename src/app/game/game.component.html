@@ -1,0 +1,8 @@
+<h1>{{service.getCurrentIndex()+1}}/{{service.getQuestions().length}}</h1>
+<button (click) = "service.getPreviousQuestion()">Previous</button>
+<button (click) = "service.getNextQuestion()">Next</button>
+<!--<p>{{service.getCurrentQuestion().question}}</p>-->
+<pre>{{service.getCurrentQuestion() | json}}</pre>
+<ol>
+    <li *ngFor="let answer of service.getAnswers()">{{answer}}</li>
+</ol>

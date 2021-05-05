@@ -8,32 +8,47 @@ export class GameService {
 
   private counter:Counter
   private currentQuestion:any
-
+  private currentIndex:number;
   private questions:Array<any> = [];
+
   constructor() { 
     this.getResponse()
     this.counter = new Counter(0,0,this.questions.length)
+    this.currentIndex = this.counter.getValue();
+    this.currentQuestion = this.questions[this.currentIndex];
   }
 
-  getNextQuestions() {
+  getNextQuestion() {
     this.counter.increment();
-    const currentIndex = this.counter.getValue();
-    this.currentQuestion = this.questions[currentIndex];
+    this.currentIndex = this.counter.getValue();
+    this.currentQuestion = this.questions[this.currentIndex];
   }
 
-  getPreviusQuestion(){
+  getPreviousQuestion(){
     this.counter.decrement();
-    const currentIndex = this.counter.getValue();
-    this.currentQuestion = this.questions[currentIndex];
+    this.currentIndex = this.counter.getValue();
+    this.currentQuestion = this.questions[this.currentIndex];
+  }
+
+  getQuestions(){
+      return this.questions;
   }
 
   getAnswers(){
     const correct = this.currentQuestion.correct_answer
     const incorrect = this.currentQuestion.incorrect_answers
     const answers = [...incorrect,correct]; 
+    return answers;
     
   }
 
+  getCurrentIndex(){
+      return this.currentIndex;
+  }
+
+  getCurrentQuestion(){
+      return this.currentQuestion;
+  }
 
   getResponse(){
 
