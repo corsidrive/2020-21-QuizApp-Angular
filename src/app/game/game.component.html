@@ -1,0 +1,36 @@
+
+
+<app-answers-list [list]="question.answers">
+        
+</app-answers-list>
+
+<button (click)="goToPreviusQuestion()"     
+        class="btn btn-primary">
+        previus
+</button>
+
+<button (click)="goToNextQuestion()" 
+        class="btn btn-primary">
+                next
+</button>
+
+<!-- <pre class="border border-primary">
+   {{question.question}}
+   {{question.category}}
+</pre>
+
+<pre>
+    {{question|json}}
+    {{question.answers|json}}
+</pre> -->
+
+<!-- 
+        <ul>
+        <li     (click) = "setUserAnswer(item)"
+                *ngFor="let item of question.answers"> 
+                {{item}} 
+        </li>
+
+</ul> -->
+
+

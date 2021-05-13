@@ -1,4 +1,4 @@
-import { Injectable, Query } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Question } from '../model/question';
 import { Counter } from './counter';
 
@@ -12,35 +12,26 @@ export class GameService {
 
   private questions:Array<any> = [];
   constructor() { 
-
-    const map = this.getResponse().map((item)=>{
-       
-        return new Question(item.category,item.type,item.difficulty,item.question,item.incorrect_answers,item.correct_answer,[]);
-        
-    })
-
-    console.log(map)
-
-    this.questions = map;
-    
+    this.getResponse()
     this.counter = new Counter(0,0,this.questions.length)
+    
     this.currentQuestion = this.questions[0];
-  }
+}
 
-  
+ getCurrentQuestion(){
+     return this.currentQuestion
+ }
 
-  getNextQuestions() {
+  getNextQuestion() {
     this.counter.increment();
     const currentIndex = this.counter.getValue();
     this.currentQuestion = this.questions[currentIndex];
-    return this.currentQuestion
   }
 
   getPreviusQuestion(){
     this.counter.decrement();
     const currentIndex = this.counter.getValue();
     this.currentQuestion = this.questions[currentIndex];
-    return this.currentQuestion
   }
 
   getAnswers(){
@@ -50,9 +41,6 @@ export class GameService {
     
   }
 
-  getCurrentQuestion(){
-      return this.currentQuestion
-  }
 
   getResponse(){
 
@@ -182,6 +170,22 @@ export class GameService {
       ]
     }
 
-    return responseHttp.results
+
+    this.questions = responseHttp.results.map(
+    function(item){
+        const q = new Question(
+            item.category,
+            item.type,
+            item.difficulty,
+            item.question,
+            item.correct_answer,
+            item.incorrect_answers
+            );
+
+            
+        return q;
+    })
+
+    console.log(this.questions);
   }
 }
