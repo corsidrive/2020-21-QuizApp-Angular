@@ -1,7 +1,9 @@
 export class Question {
+    
     public isDone = false;
     public isCorrect = false;
     public userAnswer='';
+
     constructor(
         public category:string = '',
         public type:string = '',
@@ -16,7 +18,6 @@ export class Question {
 
     shuffle(){
         this.answers = [...this.incorrect_answers,this.correct_answers].sort(() => Math.random() - 0.5)
-
     }
 }
 
