@@ -1,8 +1,24 @@
-<h1>{{service.getCurrentIndex()+1}}/{{service.getQuestions().length}}</h1>
+<!--<h1>{{service.getCurrentIndex()+1}}/{{service.getQuestions().length}}</h1>
 <button (click) = "goPreviousQuestion()">Previous</button>
 <button (click) = "goNextQuestion()">Next</button>
 <pre>{{question.question | json}}</pre>
-<!--<pre>{{service.getCurrentQuestion() | json}}</pre>-->
+<pre>{{service.getCurrentQuestion() | json}}</pre>
 <ol>
     <li *ngFor="let answer of question.answers">{{answer}}</li>
-</ol>
+</ol>-->
+<app-question-space [question]="question">
+
+</app-question-space>
+<app-answer-list [list]="question.answers">
+        
+</app-answer-list>
+
+<button (click)="goPreviousQuestion()"     
+        class="btn btn-primary">
+        previous
+</button>
+
+<button (click)="goNextQuestion()" 
+        class="btn btn-primary">
+                next
+</button>
