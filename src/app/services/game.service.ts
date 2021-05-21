@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Question } from '../model/question';
 import { Counter } from './counter';
 
@@ -11,7 +12,10 @@ export class GameService {
     private counter!: Counter
     private currentQuestion: any
 
+    
     private questions: Array<any> = [];
+
+    private subject = new Subject<any>();
 
     constructor(private httpClient: HttpClient) {
 
@@ -57,9 +61,11 @@ export class GameService {
                 
                 console.log("subscribe", this);
 
+                this.subject.next("gameServiceReady")
                 // Il servizio deve comunicare all'applicazione che è pronto
             })
-
+            
+            return this.subject.asObservable();
     }
 
     questionFactory(item:any) {

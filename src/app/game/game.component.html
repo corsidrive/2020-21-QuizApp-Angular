@@ -1,36 +1,20 @@
+<div *ngIf="question">
 
+        <app-answers-list [list]="question.answers">
 
-<app-answers-list [list]="question.answers">
-        
-</app-answers-list>
+        </app-answers-list>
 
-<button (click)="goToPreviusQuestion()"     
-        class="btn btn-primary">
-        previus
-</button>
+        <button (click)="goToPreviusQuestion()" class="btn btn-primary">
+                previus
+        </button>
 
-<button (click)="goToNextQuestion()" 
-        class="btn btn-primary">
+        <button (click)="goToNextQuestion()" class="btn btn-primary">
                 next
-</button>
+        </button>
+</div>
 
-<!-- <pre class="border border-primary">
-   {{question.question}}
-   {{question.category}}
-</pre>
+<div *ngIf="!question">
 
-<pre>
-    {{question|json}}
-    {{question.answers|json}}
-</pre> -->
+        🤷‍♀️ Aspetta un momento
 
-<!-- 
-        <ul>
-        <li     (click) = "setUserAnswer(item)"
-                *ngFor="let item of question.answers"> 
-                {{item}} 
-        </li>
-
-</ul> -->
-
-
+</div>

@@ -10,12 +10,16 @@ import { GameService } from '../services/game.service';
 export class GameComponent implements OnInit {
   // public service:GameService
   // è la domanda da rappresentare
-  public question:Question
+  public question!:Question
   constructor(
     public service:GameService
   ) { 
-    // this.service = new GameService()
-    this.question = this.service.getCurrentQuestion()
+    
+    this.service.getResponse().subscribe(() => {
+      
+      this.question = this.service.getCurrentQuestion();
+        
+    }) 
   }
   ngOnInit(): void {}
 
