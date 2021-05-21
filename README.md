@@ -43,7 +43,7 @@ $ ng serve
 
 ## HTTPClient
 
-Installazione
+Installazione / dichiarazione  
 
 file: src/app/app.module.ts
 
@@ -56,15 +56,16 @@ file: src/app/app.module.ts
 
 ```
 
+Utilizzare la dependecy injections nel costruttore della classe dove si vuole utilizzare il servizio.
+
 file: game.service.ts
-
 ```typescript
-
-  constructor(private httpClient:HttpClient) { 
-      
+    constructor(private httpClient:HttpClient) { 
 ```
 
-utilizzo httpClient 
+utilizzo delll'istanza di httpClient.
+Il metodo **get()** restituisce un **Observable**, 
+quindi mi posso "iscrivere" (**subscribe**) e fare il modo di utilizzare i dati una volta che saranno disponibili 
 
 ```typescript
  
@@ -72,11 +73,14 @@ utilizzo httpClient
 
         this.httpClient.get('https://opentdb.com/api.php?amount=10&type=multiple')
         .subscribe((responseHttp)=>{
+            // I dati sono disponibili
             console.log("subscribe",responseHttp);
             })
     }
 
 ```
+
+## Observable e Subject
 
 [Comunicazioni tra servizi e componenti](https://jasonwatmore.com/post/2019/02/07/angular-7-communicating-between-components-with-observable-subject)
 
