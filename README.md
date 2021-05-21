@@ -77,3 +77,7 @@ utilizzo httpClient
     }
 
 ```
+
+[Comunicazioni tra servizi e componenti](https://jasonwatmore.com/post/2019/02/07/angular-7-communicating-between-components-with-observable-subject)
+
+

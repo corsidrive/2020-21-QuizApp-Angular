@@ -8,7 +8,7 @@ import { Counter } from './counter';
 })
 export class GameService {
 
-    private counter: Counter
+    private counter!: Counter
     private currentQuestion: any
 
     private questions: Array<any> = [];
@@ -16,9 +16,7 @@ export class GameService {
     constructor(private httpClient: HttpClient) {
 
         this.getResponse()
-        this.counter = new Counter(0, 0, this.questions.length)
-
-        // this.currentQuestion = this.questions[0];
+        
     }
 
     getCurrentQuestion() {
@@ -48,14 +46,23 @@ export class GameService {
 
         // fetch o XMLHttprequest ---> Promessa.then()
         this.httpClient.get('https://opentdb.com/api.php?amount=10&type=multiple')
-            .subscribe((responseHttp) => {
-                console.log("subscribe", responseHttp);
+            // Ottengo i dati
+            .subscribe((responseHttp:any) => {
+                // trasformo i dati in  Array<Question>
                 this.questions = responseHttp.results.map(this.questionFactory)
+                // Inizializzo contatore
+                this.counter = new Counter(0, 0, this.questions.length)
+                // Scelgo la prima domanda
+                this.currentQuestion = this.questions[0];
+                
+                console.log("subscribe", this);
+
+                // Il servizio deve comunicare all'applicazione che è pronto
             })
 
     }
 
-    questionFactory(item) {
+    questionFactory(item:any) {
         const q = new Question(
             item.category,
             item.type,
