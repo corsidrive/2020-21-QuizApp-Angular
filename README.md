@@ -43,10 +43,9 @@ $ ng serve
 
 ## HTTPClient
 
-Installazione / dichiarazione  
+installazione / dichiarazione  
 
-file: src/app/app.module.ts
-
+**file: src/app/app.module.ts**
 ```typescript
  
  imports: [
@@ -58,17 +57,18 @@ file: src/app/app.module.ts
 
 Utilizzare la [Dependency injection](https://angular.io/guide/dependency-injection) nel costruttore della classe dove si vuole utilizzare il servizio.
 
-file: game.service.ts
+**file: src/app/service/game.service.ts**
 ```typescript
     constructor(private httpClient:HttpClient) { 
 ```
 
-utilizzo delll'istanza di httpClient.
+La classe **HttpClient** da un metodo **.get()**
+
 Il metodo **get()** restituisce un **Observable**, 
-quindi mi posso "iscrivere" (**subscribe**) e fare il modo di utilizzare i dati una volta che saranno disponibili 
+quindi mi posso "iscrivere" (**subscribe**) utilizzare i dati una volta che saranno disponibili.
 
 ```typescript
- 
+
  getResponse(){
 
         this.httpClient.get('https://opentdb.com/api.php?amount=10&type=multiple')
