@@ -56,7 +56,7 @@ file: src/app/app.module.ts
 
 ```
 
-Utilizzare la dependecy injections nel costruttore della classe dove si vuole utilizzare il servizio.
+Utilizzare la [Dependency injection](https://angular.io/guide/dependency-injection) nel costruttore della classe dove si vuole utilizzare il servizio.
 
 file: game.service.ts
 ```typescript
@@ -80,7 +80,7 @@ quindi mi posso "iscrivere" (**subscribe**) e fare il modo di utilizzare i dati 
 
 ```
 
-## Observable e Subject
+## Observable e Subject 
 
 [Comunicazioni tra servizi e componenti](https://jasonwatmore.com/post/2019/02/07/angular-7-communicating-between-components-with-observable-subject)
 
