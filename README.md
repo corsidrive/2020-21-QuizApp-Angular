@@ -34,14 +34,14 @@ $ ng serve
 - [Pagina per la creazione dell' API URL](https://opentdb.com/api_config.php)
 
 
-
 ```typescript
   providers: [
     GameService
   ],
+
 ```
 
-# HTTPClient
+## HTTPClient
 
 Installazione
 
@@ -62,11 +62,11 @@ file: game.service.ts
 
   constructor(private httpClient:HttpClient) { 
       
-      ```
+```
 
 utilizzo httpClient 
 
-```js
+```typescript
  
  getResponse(){
 
@@ -75,5 +75,5 @@ utilizzo httpClient
             console.log("subscribe",responseHttp);
             })
     }
-    
+
 ```
