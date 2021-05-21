@@ -35,3 +35,45 @@ $ ng serve
 
 
 
+```typescript
+  providers: [
+    GameService
+  ],
+```
+
+# HTTPClient
+
+Installazione
+
+file: src/app/app.module.ts
+
+```typescript
+ 
+ imports: [
+     BrowserModule,
+     HttpClientModule 
+  ],
+
+```
+
+file: game.service.ts
+
+```typescript
+
+  constructor(private httpClient:HttpClient) { 
+      
+      ```
+
+utilizzo httpClient 
+
+```js
+ 
+ getResponse(){
+
+        this.httpClient.get('https://opentdb.com/api.php?amount=10&type=multiple')
+        .subscribe((responseHttp)=>{
+            console.log("subscribe",responseHttp);
+            })
+    }
+    
+```
