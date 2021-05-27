@@ -1,9 +1,11 @@
 <div *ngIf="question">
+        <h2>{{question.question}}</h2>        
 
         <div class="p-4" [ngClass]="getClass()">
 
         <app-answers-list 
          [list]="question.answers"
+         [selected]="question.userAnswer"       
          (onUserAnswer) = "setUserAnswer($event)"
          >
         </app-answers-list>
@@ -16,7 +18,10 @@
                 next
         </button>
 
+        
+
         </div>
+
 
         <pre>
         {{question|json}}
