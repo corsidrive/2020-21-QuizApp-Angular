@@ -7,6 +7,7 @@ import { MainHeaderComponent } from './main-header/main-header.component';
 import { GameComponent } from './game/game.component';
 import { AnswerListComponent } from './game/answer-list/answer-list.component';
 import { QuestionSpaceComponent } from './game/question-space/question-space.component';
+import { ResultComponent } from './game/result/result.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { QuestionSpaceComponent } from './game/question-space/question-space.com
     MainHeaderComponent,
     GameComponent,
     AnswerListComponent,
-    QuestionSpaceComponent
+    QuestionSpaceComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

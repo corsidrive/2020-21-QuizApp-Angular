@@ -9,7 +9,11 @@
 <app-question-space [question]="question">
 
 </app-question-space>
-<app-answer-list [list]="question.answers">
+<app-answer-list 
+        [list]="question.answers"
+        [itemSelected]="question.userAnswer"
+        (onSelected)="setUserAnswer($event)"
+>
         
 </app-answer-list>
 
@@ -22,3 +26,7 @@
         class="btn btn-primary">
                 next
 </button>
+
+<div *ngIf="isDoneCount === service.getQuestions().length">
+        <app-result [questions]="service.getQuestions()"></app-result>
+</div>

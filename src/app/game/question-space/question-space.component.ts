@@ -8,9 +8,24 @@ import { Question } from 'src/app/model/questions';
 })
 export class QuestionSpaceComponent implements OnInit {
 @Input() public question!:Question
+public color:string = "red"
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  getColor():string{
+    switch (this.question.difficulty) {
+      case "hard":
+        return "red"
+      
+    case "medium":
+      return "yellow"
+    
+      case "easy":
+        return "green"
+      default:
+        return "black";
+    }
+  }
 }

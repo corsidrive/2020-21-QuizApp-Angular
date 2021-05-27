@@ -1,7 +1,7 @@
 export class Question{
 
     public isDone:boolean=false;
-    public userAnswer:string='';
+    public userAnswer!:string;
     public isCorrect:boolean=false;
     public answers:string[] = this.shuffle();
 

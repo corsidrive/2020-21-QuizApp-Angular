@@ -1,0 +1,8 @@
+<button 
+    (click)="getResult()"
+    class=" btn btn-primary">
+        vedi risultati
+</button>
+<div [ngClass]="{'d-none' : isHidden}">
+    <p>Hai risposto giusto a {{isCorrectCount}} domande</p>
+</div>
