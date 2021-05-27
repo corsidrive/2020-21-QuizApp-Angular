@@ -85,3 +85,8 @@ quindi mi posso "iscrivere" (**subscribe**) utilizzare i dati una volta che sara
 [Comunicazioni tra servizi e componenti](https://jasonwatmore.com/post/2019/02/07/angular-7-communicating-between-components-with-observable-subject)
 
 
+## EventEmitter
+
+passare dati dal **childcomponent** al **parentcomponent**
+
+[Sharing data between child and parent directives and components](https://angular.io/guide/inputs-outputs#sending-data-to-a-parent-component)
