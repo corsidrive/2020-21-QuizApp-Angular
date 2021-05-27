@@ -1,4 +1,10 @@
 
+## ["potete" mettere il vostro repositoty nel solito foglio di calcolo](https://docs.google.com/spreadsheets/d/1OVv-vFbc5OM0FhRONraV3XmTt6E8l9icCyvqPIUFe0A/edit#gid=2075820697)
+
+tab del foglio di calcolo "Angular Quizz App"
+
+
+
 Usare ngClass per visualizzare la difficoltà della domanda (difficulty)
 
  - medium text-secondary (grigio)  
