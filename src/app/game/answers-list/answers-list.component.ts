@@ -10,7 +10,7 @@ export class AnswersListComponent implements OnInit {
   @Input() public list:string[] = []
   @Output() public onUserAnswer:EventEmitter<string> = new EventEmitter();
 
-  private selected:string = ''
+  @Input() public selected:string = ''
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +18,7 @@ export class AnswersListComponent implements OnInit {
 
   onClickHandler(answer:string){
     console.log("sono dentro il componente (child)",answer);
-    this.selected = answer
+    //this.selected = answer
     this.onUserAnswer.emit(answer);
   }
 
