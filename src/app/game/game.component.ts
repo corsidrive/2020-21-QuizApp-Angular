@@ -1,3 +1,4 @@
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
 import { Question } from '../model/questions';
@@ -59,5 +60,6 @@ export class GameComponent implements OnInit, OnDestroy{
   ngOnDestroy():void{
     this.sub.unsubscribe();
   }
+
 
 }

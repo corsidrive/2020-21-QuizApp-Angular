@@ -1,0 +1,12 @@
+<div class="list-group">
+   
+    <div *ngFor="let item of list;index as i" 
+      (click) = "onClickHandler(item)" 
+        [ngClass]="isActive(item)"
+        class="list-group-item">
+      <span class="">{{i+1}}</span> {{item}}
+    </div>
+   
+  </div>
+
+  

@@ -1,11 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
 import { Question } from '../model/questions';
+
 import { Counter } from './counter';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class GameService {
 
@@ -56,7 +59,12 @@ export class GameService {
       return this.currentQuestion;
   }
 
-  getResponse(){
+
+    getPreviusQuestion() {
+        this.counter.decrement();
+        const currentIndex = this.counter.getValue();
+        this.currentQuestion = this.questions[currentIndex];
+    }
 
     // fetch o XMLHttpRequest ----> Promise
     this.httpClient.get('https://opentdb.com/api.php?amount=10')
@@ -95,6 +103,7 @@ sendMessage(message: string) {
 
 clearMessages() {
     this.subject.next();
+
 }
 
 getMessage(): Observable<any> {

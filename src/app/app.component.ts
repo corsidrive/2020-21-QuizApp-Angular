@@ -7,7 +7,9 @@ import { GameService } from './services/game.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'Quiz';
 
   //game = new GameService()
+
 }
