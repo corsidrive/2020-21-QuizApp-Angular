@@ -1,0 +1,13 @@
+<!--{{list|json}}-->
+
+<div class="list-group">
+   
+    <div *ngFor="let item of list;index as i" 
+         class="list-group-item"
+         [ngClass]="getActiveClass(item)"
+         (click)="onClickHandler(item)"
+    >
+
+      <span class="">{{i+1}}</span>) {{item}}
+    </div>
+   

@@ -1,36 +1,33 @@
-<div *ngIf="question">
-        <h2>{{question.question}}</h2>        
 
-        <div class="p-4" [ngClass]="getClass()">
+<!--<h1>{{service.getCurrentIndex()+1}}/{{service.getQuestions().length}}</h1>
+<button (click) = "goPreviousQuestion()">Previous</button>
+<button (click) = "goNextQuestion()">Next</button>
+<pre>{{question.question | json}}</pre>
+<pre>{{service.getCurrentQuestion() | json}}</pre>
+<ol>
+    <li *ngFor="let answer of question.answers">{{answer}}</li>
+</ol>-->
+<app-question-space [question]="question">
 
-        <app-answers-list 
-         [list]="question.answers"
-         [selected]="question.userAnswer"       
-         (onUserAnswer) = "setUserAnswer($event)"
-         >
-        </app-answers-list>
-
-        <button (click)="goToPreviusQuestion()" class="btn btn-primary">
-                previus
-        </button>
-
-        <button (click)="goToNextQuestion()" class="btn btn-primary">
-                next
-        </button>
-
+</app-question-space>
+<app-answer-list 
+        [list]="question.answers"
+        [itemSelected]="question.userAnswer"
+        (onSelected)="setUserAnswer($event)"
+>
         
+</app-answer-list>
 
-        </div>
+<button (click)="goPreviousQuestion()"     
+        class="btn btn-primary">
+        previous
+</button>
 
+<button (click)="goNextQuestion()" 
+        class="btn btn-primary">
+                next
+</button>
 
-        <pre>
-        {{question|json}}
-
-        </pre>
-</div>
-
-<div *ngIf="!question">
-
-        🤷‍♀️ Aspetta un momento
-
+<div *ngIf="isDoneCount === service.getQuestions().length">
+        <app-result [questions]="service.getQuestions()"></app-result>
 </div>

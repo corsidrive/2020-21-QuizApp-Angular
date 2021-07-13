@@ -1,37 +1,64 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { Question } from '../model/question';
+
+import { HttpClient } from '@angular/common/http';
+import { Question } from '../model/questions';
+
 import { Counter } from './counter';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class GameService {
 
-    private counter!: Counter
-    private currentQuestion: any
+  private counter!:Counter
+  private currentQuestion!:Question
+  private currentIndex!:number;
+  private questions:Array<any> = [];
 
+  // message service
+  private subject = new Subject<any>();
+  private message!:string;
+
+
+// ---------------------GAME SERVICE-------------------------------  
+  constructor(private httpClient:HttpClient) {
+        this.getResponse();
+}
+
+  getNextQuestion() {
+    this.counter.increment();
+    this.currentIndex = this.counter.getValue();
+    this.currentQuestion = this.questions[this.currentIndex];
+  }
+
+  getPreviousQuestion(){
+    this.counter.decrement();
+    this.currentIndex = this.counter.getValue();
+    this.currentQuestion = this.questions[this.currentIndex];
+  }
+
+  getQuestions(){
+      return this.questions;
+  }
+
+  getAnswers(){
+    const correct = this.currentQuestion.correct_answer
+    const incorrect = this.currentQuestion.incorrect_answers
+    const answers = [...incorrect,correct]; 
+    return answers;
     
-    private questions: Array<any> = [];
+  }
 
-    private subject = new Subject<any>();
+  getCurrentIndex(){
+      return this.currentIndex;
+  }
 
-    constructor(private httpClient: HttpClient) {
+  getCurrentQuestion(){
+      return this.currentQuestion;
+  }
 
-        this.getResponse()
-        
-    }
-
-    getCurrentQuestion() {
-        return this.currentQuestion
-    }
-
-    getNextQuestion() {
-        this.counter.increment();
-        const currentIndex = this.counter.getValue();
-        this.currentQuestion = this.questions[currentIndex];
-    }
 
     getPreviusQuestion() {
         this.counter.decrement();
@@ -39,44 +66,49 @@ export class GameService {
         this.currentQuestion = this.questions[currentIndex];
     }
 
-    getAnswers() {
-        const correct = this.currentQuestion.correct_answer
-        const incorrect = this.currentQuestion.incorrect_answers
-        const answers = [...incorrect, correct];
-    }
+    // fetch o XMLHttpRequest ----> Promise
+    this.httpClient.get('https://opentdb.com/api.php?amount=10')
+    // ottengo i dati
+    .subscribe((responseHttp:any)=>{
+        console.log('getResponse',responseHttp);
+        // trasformo i dati
+        this.questions = responseHttp.results.map(this.questionFactory)
+        // inizializzo contatore
+        this.counter = new Counter(0,0,this.questions.length)
+        // scelgo la prima domanda
+        this.currentIndex = this.counter.getValue();
+        this.currentQuestion = this.questions[this.currentIndex];
+        // il service deve comunicare all' app che è pronto
+        this.message = "Ready!"
+        this.sendMessage(this.message)
+    }) 
+  }
 
-
-    getResponse() {
-
-        // fetch o XMLHttprequest ---> Promessa.then()
-        this.httpClient.get('https://opentdb.com/api.php?amount=10&type=multiple')
-            // Ottengo i dati
-            .subscribe((responseHttp:any) => {
-                // trasformo i dati in  Array<Question>
-                this.questions = responseHttp.results.map(this.questionFactory)
-                // Inizializzo contatore
-                this.counter = new Counter(0, 0, this.questions.length)
-                // Scelgo la prima domanda
-                this.currentQuestion = this.questions[0];
-                
-                console.log("subscribe", this);
-
-                this.subject.next("gameServiceReady")
-                // Il servizio deve comunicare all'applicazione che è pronto
-            })
-            
-            return this.subject.asObservable();
-    }
-
-    questionFactory(item:any) {
-        const q = new Question(
-            item.category,
-            item.type,
-            item.difficulty,
-            item.question,
-            item.correct_answer,
-            item.incorrect_answers
-        );
-        return q;
-    }
+  questionFactory(item:any){
+    const q = new Question(
+        item.category,
+        item.type,
+        item.difficulty,
+        item.question,
+        item.correct_answer,
+        item.incorrect_answers
+    );
+    return q
 }
+//-------------------MESSAGE SERVICE------------------------------------
+
+sendMessage(message: string) {
+    this.subject.next(message);
+}
+
+clearMessages() {
+    this.subject.next();
+
+}
+
+getMessage(): Observable<any> {
+    return this.subject.asObservable();
+}
+
+}
+
